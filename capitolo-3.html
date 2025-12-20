@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capitolo 3: HTML Semantico e Accessibilità</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="site-title">Come Creare un Web-Book</h1>
+      <p class="site-subtitle">Il Libro - Teoria e Riflessioni</p>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="capitolo-1.html">Cap. 1</a></li>
+          <li><a href="capitolo-2.html">Cap. 2</a></li>
+          <li><a href="capitolo-3.html">Cap. 3</a></li>
+          <li><a href="capitolo-4.html">Cap. 4</a></li>
+          <li><a href="capitolo-5.html">Cap. 5</a></li>
+          <li><a href="capitolo-6.html">Cap. 6</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="chapter-content">
+        <h1>Capitolo 3: HTML Semantico e Accessibilità</h1>
+        
+        <p>
+          L'HTML non è solo un linguaggio di markup, è un linguaggio 
+          <strong>semantico</strong> che comunica il <em>significato</em> 
+          del contenuto, non solo la sua apparenza.
+        </p>
+
+        <h2>Perché la Semantica Conta</h2>
+        
+        <p>
+          HTML semantico ha benefici concreti:
+        </p>
+        
+        <div class="concept-box">
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li><strong>Accessibilità:</strong> screen reader capiscono la struttura</li>
+            <li><strong>SEO:</strong> motori di ricerca valorizzano markup significativo</li>
+            <li><strong>Manutenibilità:</strong> codice auto-documentante</li>
+            <li><strong>Styling:</strong> CSS può targettizzare elementi semantici</li>
+          </ul>
+        </div>
+
+        <h2>Tag Strutturali nell'Esercizio</h2>
+        
+        <pre><code>&lt;!-- Struttura semantica --&gt;
+&lt;header&gt;
+  &lt;h1&gt;Titolo principale&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;...&lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+
+        <p>
+          Ogni tag comunica <strong>ruolo</strong> e <strong>scopo</strong>:
+        </p>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li><code>&lt;header&gt;</code> → introduzione/intestazione</li>
+          <li><code>&lt;nav&gt;</code> → navigazione principale</li>
+          <li><code>&lt;main&gt;</code> → contenuto principale (unico per pagina)</li>
+          <li><code>&lt;article&gt;</code> → contenuto autocontenuto</li>
+          <li><code>&lt;footer&gt;</code> → informazioni di chiusura</li>
+        </ul>
+
+        <h2>Heading Hierarchy</h2>
+        
+        <p>
+          Gli heading (h1-h6) creano un <strong>outline</strong> del documento:
+        </p>
+        
+        <pre><code>h1 - Titolo capitolo (uno per pagina)
+  h2 - Sezione principale
+    h3 - Sottosezione
+      h4 - Dettaglio specifico</code></pre>
+
+        <div class="note-box">
+          <p>
+            <strong>Regola d'oro:</strong> Mai saltare livelli. 
+            Non passare da h2 a h4 saltando h3.
+          </p>
+        </div>
+
+        <h2>ARIA e Accessibilità</h2>
+        
+        <p>
+          ARIA (Accessible Rich Internet Applications) migliora l'accessibilità:
+        </p>
+        
+        <pre><code>&lt;button aria-label="Esegui codice"&gt;▶&lt;/button&gt;
+
+&lt;div role="alert"&gt;Errore nel codice&lt;/div&gt;</code></pre>
+
+        <div class="practice-box">
+          <h4>Best Practices ARIA</h4>
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li>Usa HTML semantico prima di ARIA</li>
+            <li>Non ridefinire semantica nativa</li>
+            <li>Testa con screen reader reali</li>
+          </ul>
+        </div>
+
+        <h2>Contrasto e Leggibilità</h2>
+        
+        <p>
+          WCAG 2.1 richiede rapporti di contrasto minimi:
+        </p>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li>Testo normale: almeno 4.5:1</li>
+          <li>Testo grande (18pt+): almeno 3:1</li>
+        </ul>
+
+        <p>
+          Nell'Esercizio: <code>#2a2a2a</code> su <code>#fafafa</code> = 13.8:1 ✓
+        </p>
+
+        <h2>Focus Management</h2>
+        
+        <p>
+          La navigazione da tastiera deve essere ovvia:
+        </p>
+        
+        <pre><code>/* Focus visibile */
+a:focus, button:focus {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 2px;
+}</code></pre>
+
+        <h2>Riepilogo</h2>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li>✓ HTML semantico per significato, non solo forma</li>
+          <li>✓ Heading hierarchy logica</li>
+          <li>✓ ARIA quando HTML non basta</li>
+          <li>✓ Contrasto adeguato per leggibilità</li>
+          <li>✓ Focus management per navigazione da tastiera</li>
+        </ul>
+
+        <div class="chapter-nav">
+          <a href="capitolo-2.html" class="prev">← Capitolo 2</a>
+          <a href="capitolo-4.html" class="next">Capitolo 4 →</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Capitolo 3</strong> - HTML Semantico e Accessibilità<br>
+        Come Creare un Web-Book - Il Libro
+      </p>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

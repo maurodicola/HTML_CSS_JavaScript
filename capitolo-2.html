@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capitolo 2: Architettura dell'Informazione</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="site-title">Come Creare un Web-Book</h1>
+      <p class="site-subtitle">Il Libro - Teoria e Riflessioni</p>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="capitolo-1.html">Cap. 1</a></li>
+          <li><a href="capitolo-2.html">Cap. 2</a></li>
+          <li><a href="capitolo-3.html">Cap. 3</a></li>
+          <li><a href="capitolo-4.html">Cap. 4</a></li>
+          <li><a href="capitolo-5.html">Cap. 5</a></li>
+          <li><a href="capitolo-6.html">Cap. 6</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="chapter-content">
+        <h1>Capitolo 2: Architettura dell'Informazione</h1>
+        
+        <p>
+          L'architettura dell'informazione (IA) è l'arte di organizzare contenuti 
+          in modo logico, trovabile e comprensibile. È il fondamento invisibile 
+          che rende un web-book usabile.
+        </p>
+
+        <h2>Struttura File e Cartelle</h2>
+        
+        <p>
+          La struttura fisica riflette la struttura logica del contenuto:
+        </p>
+        
+        <pre><code>webbook/
+├── index.html          → Homepage (porta d'ingresso)
+├── capitolo-N.html     → Contenuti lineari
+├── css/
+│   └── style.css       → Presentazione separata
+└── js/
+    └── script.js       → Comportamento separato</code></pre>
+
+        <div class="concept-box">
+          <h3>Principio di Separazione delle Responsabilità</h3>
+          <p>
+            HTML → Struttura e contenuto<br>
+            CSS → Presentazione e stile<br>
+            JavaScript → Comportamento e interattività
+          </p>
+          <p style="margin-top: 1rem; margin-bottom: 0;">
+            Questa separazione facilita manutenzione, riutilizzo e collaborazione.
+          </p>
+        </div>
+
+        <h2>Naming Conventions</h2>
+        
+        <p>
+          I nomi dei file seguono regole precise:
+        </p>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li><strong>Minuscolo:</strong> <code>capitolo-1.html</code> non <code>Capitolo-1.html</code></li>
+          <li><strong>Trattini:</strong> <code>come-creare.html</code> non <code>come_creare.html</code></li>
+          <li><strong>Descrittivi:</strong> <code>navigazione.html</code> non <code>nav.html</code></li>
+          <li><strong>No caratteri speciali:</strong> solo a-z, 0-9, trattino</li>
+        </ul>
+
+        <div class="reflection-box">
+          <p>
+            <strong>Perché?</strong> I sistemi Unix sono case-sensitive. 
+            Windows no, ma i server web sì. Usare sempre minuscolo previene 
+            errori di linking in produzione.
+          </p>
+        </div>
+
+        <h2>Gerarchia dei Contenuti</h2>
+        
+        <p>
+          L'informazione è organizzata gerarchicamente:
+        </p>
+        
+        <ol style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li><strong>Sito</strong> (index.html) → panoramica completa</li>
+          <li><strong>Capitoli</strong> → temi principali</li>
+          <li><strong>Sezioni</strong> (h2) → argomenti nel capitolo</li>
+          <li><strong>Sottosezioni</strong> (h3, h4) → dettagli specifici</li>
+        </ol>
+
+        <h2>Modelli Mentali</h2>
+        
+        <p>
+          Un buon web-book costruisce un <strong>modello mentale</strong> 
+          chiaro nella mente del lettore. Nell'Esercizio:
+        </p>
+        
+        <div class="practice-box">
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li>Homepage = punto di partenza, mappa completa</li>
+            <li>Capitoli = tappe progressive di un viaggio</li>
+            <li>Navigazione = binari che guidano il percorso</li>
+            <li>Esercizi = stazioni dove fermarsi e praticare</li>
+          </ul>
+        </div>
+
+        <h2>Progressione Logica</h2>
+        
+        <p>
+          I capitoli dell'Esercizio seguono una progressione pedagogica:
+        </p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Capitolo</th>
+              <th>Fondamento</th>
+              <th>Dipendenze</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Introduzione</td>
+              <td>Motivazione, contesto</td>
+              <td>Nessuna</td>
+            </tr>
+            <tr>
+              <td>2. Struttura file</td>
+              <td>Organizzazione</td>
+              <td>Cap. 1</td>
+            </tr>
+            <tr>
+              <td>3. HTML</td>
+              <td>Contenuto</td>
+              <td>Cap. 1-2</td>
+            </tr>
+            <tr>
+              <td>4. CSS</td>
+              <td>Stile</td>
+              <td>Cap. 1-3</td>
+            </tr>
+            <tr>
+              <td>5. Navigazione</td>
+              <td>Usabilità</td>
+              <td>Cap. 1-4</td>
+            </tr>
+            <tr>
+              <td>6. JavaScript</td>
+              <td>Interattività</td>
+              <td>Cap. 1-5</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Ogni capitolo <strong>costruisce</strong> sul precedente. 
+          Questa è architettura dell'informazione applicata.
+        </p>
+
+        <h2>Chunking (Segmentazione)</h2>
+        
+        <p>
+          L'informazione complessa è "spezzata" in <strong>chunks</strong> 
+          digeribili. Regole applicate:
+        </p>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li>Un capitolo = un concetto principale</li>
+          <li>Una sezione = un sotto-concetto</li>
+          <li>Un paragrafo = un'idea singola</li>
+          <li>Lunghezza ottimale: 400-800 parole per sezione</li>
+        </ul>
+
+        <h2>Scannabilità</h2>
+        
+        <p>
+          Il web si <em>scansiona</em>, non si legge. Design per la scansione:
+        </p>
+        
+        <div class="note-box">
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li><strong>Titoli descrittivi:</strong> sapere cosa aspettarsi</li>
+            <li><strong>Liste puntate:</strong> informazioni in formato digeribile</li>
+            <li><strong>Grassetto strategico:</strong> evidenziare concetti chiave</li>
+            <li><strong>Box colorati:</strong> segnalare informazioni importanti</li>
+            <li><strong>Spazi bianchi:</strong> dare respiro al contenuto</li>
+          </ul>
+        </div>
+
+        <h2>Findability (Trovabilità)</h2>
+        
+        <p>
+          L'utente deve <strong>trovare</strong> ciò che cerca. Strategie:
+        </p>
+        
+        <ol style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li><strong>Indice nella homepage:</strong> panoramica completa</li>
+          <li><strong>Navigazione persistente:</strong> menu sempre visibile</li>
+          <li><strong>Link contestuali:</strong> riferimenti incrociati tra capitoli</li>
+          <li><strong>Breadcrumbs:</strong> "sei qui" navigation</li>
+        </ol>
+
+        <h2>Riepilogo</h2>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li>✓ Struttura file riflette logica del contenuto</li>
+          <li>✓ Naming conventions consistenti</li>
+          <li>✓ Gerarchia chiara e progressiva</li>
+          <li>✓ Chunking per comprensibilità</li>
+          <li>✓ Design per scansione</li>
+          <li>✓ Findability attraverso navigazione multipla</li>
+        </ul>
+
+        <div class="chapter-nav">
+          <a href="capitolo-1.html" class="prev">← Capitolo 1</a>
+          <a href="capitolo-3.html" class="next">Capitolo 3 →</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Capitolo 2</strong> - Architettura dell'Informazione<br>
+        Come Creare un Web-Book - Il Libro
+      </p>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

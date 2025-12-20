@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capitolo 6: Workflow e Pubblicazione</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="site-title">Come Creare un Web-Book</h1>
+      <p class="site-subtitle">Il Libro - Teoria e Riflessioni</p>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="capitolo-1.html">Cap. 1</a></li>
+          <li><a href="capitolo-2.html">Cap. 2</a></li>
+          <li><a href="capitolo-3.html">Cap. 3</a></li>
+          <li><a href="capitolo-4.html">Cap. 4</a></li>
+          <li><a href="capitolo-5.html">Cap. 5</a></li>
+          <li><a href="capitolo-6.html">Cap. 6</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="chapter-content">
+        <h1>Capitolo 6: Workflow e Pubblicazione</h1>
+        
+        <p>
+          Un web-book non finisce quando il codice è scritto. Il processo 
+          completo include testing, ottimizzazione, deployment e manutenzione.
+        </p>
+
+        <h2>Il Ciclo di Sviluppo</h2>
+        
+        <div class="concept-box">
+          <ol style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li><strong>Pianificazione:</strong> definire obiettivi e struttura</li>
+            <li><strong>Prototipazione:</strong> sketch e wireframe</li>
+            <li><strong>Sviluppo:</strong> scrivere HTML, CSS, JS</li>
+            <li><strong>Testing:</strong> verificare funzionalità</li>
+            <li><strong>Refinement:</strong> migliorare basandosi su feedback</li>
+            <li><strong>Deployment:</strong> pubblicare online</li>
+            <li><strong>Manutenzione:</strong> aggiornare contenuti</li>
+          </ol>
+        </div>
+
+        <h2>Testing Multi-Level</h2>
+        
+        <h3>1. Testing Funzionale</h3>
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Tutti i link funzionano?</li>
+          <li>Editor eseguono codice correttamente?</li>
+          <li>Soluzioni si mostrano/nascondono?</li>
+          <li>Navigazione prev/next corretta?</li>
+        </ul>
+
+        <h3>2. Testing Cross-Browser</h3>
+        <p>Verificare su:</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Chrome, Firefox, Safari, Edge</li>
+          <li>Versioni desktop e mobile</li>
+          <li>Diversi sistemi operativi</li>
+        </ul>
+
+        <h3>3. Testing Responsivo</h3>
+        <p>Breakpoint critici:</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Mobile: 320px - 480px</li>
+          <li>Tablet: 481px - 768px</li>
+          <li>Desktop: 769px+</li>
+        </ul>
+
+        <h3>4. Testing Accessibilità</h3>
+        <div class="practice-box">
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li>Navigazione solo tastiera (Tab, Enter, Esc)</li>
+            <li>Screen reader (NVDA, JAWS, VoiceOver)</li>
+            <li>Contrasto colori con strumenti automatici</li>
+            <li>Validazione HTML (W3C Validator)</li>
+          </ul>
+        </div>
+
+        <h2>Ottimizzazione Pre-Pubblicazione</h2>
+        
+        <h3>Performance</h3>
+        <pre><code># Minimizza CSS
+cssnano style.css > style.min.css
+
+# Minimizza JS
+terser script.js > script.min.js
+
+# Ottimizza immagini
+imagemin images/* --out-dir=images/</code></pre>
+
+        <h3>SEO</h3>
+        <pre><code>&lt;head&gt;
+  &lt;title&gt;Come Creare Web-Book | Guida Completa&lt;/title&gt;
+  &lt;meta name="description" content="Impara a creare..."&gt;
+  &lt;meta property="og:title" content="..."&gt;
+  &lt;meta property="og:image" content="preview.jpg"&gt;
+&lt;/head&gt;</code></pre>
+
+        <h2>Deployment su GitHub Pages</h2>
+        
+        <p>Il workflow consigliato:</p>
+        
+        <ol style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li>Crea repository su GitHub</li>
+          <li>Inizializza Git localmente</li>
+          <li>Commit e push del codice</li>
+          <li>Abilita GitHub Pages nelle impostazioni</li>
+          <li>Sito live in pochi minuti!</li>
+        </ol>
+
+        <pre><code># Comandi Git base
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin [URL]
+git push -u origin main</code></pre>
+
+        <div class="note-box">
+          <p>
+            <strong>Pro tip:</strong> Usa GitHub Actions per build automatiche 
+            e deployment continuo.
+          </p>
+        </div>
+
+        <h2>Alternative di Hosting</h2>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Piattaforma</th>
+              <th>Pro</th>
+              <th>Contro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>GitHub Pages</strong></td>
+              <td>Gratis, Git integrato</td>
+              <td>Solo siti statici</td>
+            </tr>
+            <tr>
+              <td><strong>Netlify</strong></td>
+              <td>Deploy facile, preview</td>
+              <td>Limiti su free tier</td>
+            </tr>
+            <tr>
+              <td><strong>Vercel</strong></td>
+              <td>Performance ottime</td>
+              <td>Limiti su build</td>
+            </tr>
+            <tr>
+              <td><strong>CloudFlare Pages</strong></td>
+              <td>CDN globale gratis</td>
+              <td>Configurazione complessa</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Manutenzione Continua</h2>
+        
+        <p>Dopo il lancio:</p>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li><strong>Monitora analytics:</strong> capire come gli utenti navigano</li>
+          <li><strong>Raccogli feedback:</strong> form, email, social</li>
+          <li><strong>Aggiorna contenuti:</strong> mantieni informazioni fresche</li>
+          <li><strong>Fix bug:</strong> risolvi problemi segnalati</li>
+          <li><strong>Migliora progressivamente:</strong> aggiungi feature richieste</li>
+        </ul>
+
+        <h2>Versionamento</h2>
+        
+        <p>Strategie per tracciare cambiamenti:</p>
+        
+        <div class="reflection-box">
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li><strong>Git tags:</strong> marca versioni importanti</li>
+            <li><strong>CHANGELOG.md:</strong> documenta ogni modifica</li>
+            <li><strong>Semantic versioning:</strong> v1.2.3 (major.minor.patch)</li>
+            <li><strong>Branch strategy:</strong> main/develop/feature</li>
+          </ul>
+        </div>
+
+        <h2>Metriche di Successo</h2>
+        
+        <p>Come misurare l'efficacia del web-book:</p>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li><strong>Engagement:</strong> tempo medio sulla pagina</li>
+          <li><strong>Completamento:</strong> % utenti che finiscono il percorso</li>
+          <li><strong>Interazione:</strong> uso editor, completamento esercizi</li>
+          <li><strong>Retention:</strong> utenti che ritornano</li>
+          <li><strong>Condivisione:</strong> link esterni e social shares</li>
+        </ul>
+
+        <h2>Il Viaggio Meta-Didattico Completo</h2>
+        
+        <blockquote>
+          "Ora conosci non solo come creare un web-book, ma perché 
+          ogni scelta è stata fatta. Questo è meta-apprendimento."
+        </blockquote>
+
+        <div class="concept-box">
+          <h3>🎓 Competenze Acquisite</h3>
+          <p>Attraverso L'Esercizio e Il Libro, hai sviluppato:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0;">
+            <li>Competenze tecniche (HTML, CSS, JS)</li>
+            <li>Principi di design didattico</li>
+            <li>Architettura dell'informazione</li>
+            <li>Accessibilità e inclusione</li>
+            <li>Workflow di sviluppo professionale</li>
+            <li>Pensiero sistemico e iterativo</li>
+          </ul>
+        </div>
+
+        <h2>Prossimi Passi</h2>
+        
+        <p>Il tuo percorso non finisce qui:</p>
+        
+        <div class="practice-box">
+          <ol style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li><strong>Crea il tuo web-book:</strong> applica ciò che hai imparato</li>
+            <li><strong>Sperimenta:</strong> prova varianti, rompi le regole consapevolmente</li>
+            <li><strong>Condividi:</strong> pubblica e raccogli feedback</li>
+            <li><strong>Insegna:</strong> il modo migliore per consolidare</li>
+            <li><strong>Continua a imparare:</strong> tecnologie web evolvono</li>
+          </ol>
+        </div>
+
+        <h2>Conclusione</h2>
+        
+        <p>
+          Questo progetto meta-didattico ti ha guidato attraverso due livelli 
+          di apprendimento: pratico (L'Esercizio) e teorico (Il Libro). 
+          Ora possiedi un <strong>framework mentale completo</strong> per 
+          creare materiali didattici digitali efficaci.
+        </p>
+
+        <p>
+          Ricorda: il miglior modo per imparare è <strong>fare</strong>, 
+          riflettere, iterare. Non aspettare la perfezione. Inizia, crea, 
+          migliora progressivamente.
+        </p>
+
+        <div class="concept-box" style="background: linear-gradient(135deg, #cce3c5, #f7e5b8); padding: 2rem; margin: 3rem 0;">
+          <h2 style="margin-top: 0;">🏆 Missione Meta-Didattica Compiuta</h2>
+          <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+            Hai completato il viaggio ricorsivo: hai imparato a creare web-book 
+            <em>creando</em> un web-book <em>sul creare</em> web-book.
+          </p>
+          <p style="margin-bottom: 1rem;">
+            Questo è il potere del meta-apprendimento: non solo sai <strong>cosa fare</strong>, 
+            ma capisci <strong>perché</strong> e <strong>come</strong> farlo efficacemente.
+          </p>
+          <p style="margin-bottom: 0;">
+            <strong>Ora vai e crea cose meravigliose! 🚀📚✨</strong>
+          </p>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="capitolo-5.html" class="prev">← Capitolo 5</a>
+          <a href="index.html" class="next">Torna alla Home</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Capitolo 6</strong> - Workflow e Pubblicazione<br>
+        Come Creare un Web-Book - Il Libro
+      </p>
+      <p style="margin-top: 1.5rem; font-size: 1rem;">
+        <strong>Grazie per aver completato questo viaggio meta-didattico!</strong>
+      </p>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

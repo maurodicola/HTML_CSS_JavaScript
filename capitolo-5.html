@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capitolo 5: Interattività e JavaScript</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="site-title">Come Creare un Web-Book</h1>
+      <p class="site-subtitle">Il Libro - Teoria e Riflessioni</p>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="capitolo-1.html">Cap. 1</a></li>
+          <li><a href="capitolo-2.html">Cap. 2</a></li>
+          <li><a href="capitolo-3.html">Cap. 3</a></li>
+          <li><a href="capitolo-4.html">Cap. 4</a></li>
+          <li><a href="capitolo-5.html">Cap. 5</a></li>
+          <li><a href="capitolo-6.html">Cap. 6</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="chapter-content">
+        <h1>Capitolo 5: Interattività e JavaScript</h1>
+        
+        <p>
+          JavaScript trasforma pagine statiche in <strong>esperienze interattive</strong>. 
+          Ma va usato con saggezza: troppo poco e il web-book è noioso, 
+          troppo e diventa sovraccarico.
+        </p>
+
+        <h2>Progressive Enhancement</h2>
+        
+        <p>
+          Il principio guida: il sito deve funzionare <strong>senza</strong> JavaScript.
+        </p>
+        
+        <div class="concept-box">
+          <h3>I Tre Livelli</h3>
+          <ol style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li><strong>HTML:</strong> contenuto accessibile</li>
+            <li><strong>CSS:</strong> presentazione gradevole</li>
+            <li><strong>JavaScript:</strong> enhancement opzionale</li>
+          </ol>
+        </div>
+
+        <p>
+          Nell'Esercizio, se JavaScript è disabilitato:
+        </p>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li>✓ Contenuto leggibile</li>
+          <li>✓ Navigazione funzionante</li>
+          <li>✓ Link cliccabili</li>
+          <li>✗ Editor interattivi non funzionano</li>
+          <li>✗ Soluzioni sempre visibili</li>
+        </ul>
+
+        <h2>Anatomia di un Editor di Codice</h2>
+        
+        <p>
+          L'editor interattivo è il pezzo forte dell'Esercizio:
+        </p>
+        
+        <pre><code>function runCode(textarea, output) {
+  const code = textarea.value;
+  
+  // Iframe sandbox per sicurezza
+  const iframe = document.createElement('iframe');
+  iframe.sandbox = 'allow-scripts';
+  
+  output.appendChild(iframe);
+  
+  // Esegui codice in contesto isolato
+  iframe.contentWindow.document.write(code);
+}</code></pre>
+
+        <div class="note-box">
+          <p>
+            <strong>Sicurezza:</strong> L'iframe con <code>sandbox</code> 
+            isola l'esecuzione del codice utente, prevenendo XSS e accessi 
+            non autorizzati.
+          </p>
+        </div>
+
+        <h2>Event-Driven Programming</h2>
+        
+        <p>
+          JavaScript risponde a <strong>eventi</strong>:
+        </p>
+        
+        <pre><code>// Click
+button.addEventListener('click', handleClick);
+
+// Scroll
+window.addEventListener('scroll', handleScroll);
+
+// Keyboard
+textarea.addEventListener('keydown', handleKeypress);</code></pre>
+
+        <p>
+          Ogni interazione nell'Esercizio è un evento + handler.
+        </p>
+
+        <h2>DOM Manipulation</h2>
+        
+        <p>
+          JavaScript modifica la struttura della pagina:
+        </p>
+        
+        <pre><code>// Mostra/nascondi soluzione
+solution.classList.toggle('visible');
+
+// Cambia testo button
+button.textContent = 'Nascondi soluzione';
+
+// Aggiungi elemento
+output.appendChild(iframe);</code></pre>
+
+        <div class="practice-box">
+          <h4>Best Practices DOM</h4>
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li>Minimizza reflows (modifica batch)</li>
+            <li>Usa <code>classList</code> invece di <code>className</code></li>
+            <li>Cache selettori frequenti</li>
+            <li>Delega eventi quando possibile</li>
+          </ul>
+        </div>
+
+        <h2>Animazioni e Transizioni</h2>
+        
+        <p>
+          Preferire CSS per animazioni semplici:
+        </p>
+        
+        <pre><code>/* CSS (performante) */
+.element {
+  transition: all 0.3s ease;
+}
+
+.element:hover {
+  transform: translateY(-2px);
+}</code></pre>
+
+        <p>
+          JavaScript per animazioni complesse:
+        </p>
+        
+        <pre><code>// Intersection Observer per scroll animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});</code></pre>
+
+        <h2>Gestione dello Stato</h2>
+        
+        <p>
+          Per funzionalità complesse, tracciare lo stato:
+        </p>
+        
+        <pre><code>const state = {
+  currentChapter: 1,
+  completedExercises: [],
+  solutionsVisible: new Set()
+};
+
+function updateState(changes) {
+  Object.assign(state, changes);
+  render();
+}</code></pre>
+
+        <h2>Performance JavaScript</h2>
+        
+        <p>
+          Ottimizzazioni implementate:
+        </p>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li><strong>Debouncing:</strong> limita chiamate frequenti</li>
+          <li><strong>Lazy loading:</strong> carica solo quando serve</li>
+          <li><strong>Event delegation:</strong> un listener per molti elementi</li>
+          <li><strong>Minimizzazione:</strong> riduci dimensione bundle</li>
+        </ul>
+
+        <h2>Testing e Debugging</h2>
+        
+        <p>
+          Strategie per codice affidabile:
+        </p>
+        
+        <div class="reflection-box">
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li>Console logging strategico</li>
+            <li>Breakpoint nel DevTools</li>
+            <li>Test su browser diversi</li>
+            <li>Gestione errori con try/catch</li>
+            <li>Validazione input utente</li>
+          </ul>
+        </div>
+
+        <h2>Riepilogo</h2>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li>✓ Progressive enhancement come filosofia</li>
+          <li>✓ Editor sandbox per sicurezza</li>
+          <li>✓ Event-driven architecture</li>
+          <li>✓ DOM manipulation efficiente</li>
+          <li>✓ CSS per animazioni semplici</li>
+          <li>✓ Performance-first JavaScript</li>
+        </ul>
+
+        <div class="chapter-nav">
+          <a href="capitolo-4.html" class="prev">← Capitolo 4</a>
+          <a href="capitolo-6.html" class="next">Capitolo 6 →</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Capitolo 5</strong> - Interattività e JavaScript<br>
+        Come Creare un Web-Book - Il Libro
+      </p>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capitolo 4: Sistema di Design CSS</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="site-title">Come Creare un Web-Book</h1>
+      <p class="site-subtitle">Il Libro - Teoria e Riflessioni</p>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="capitolo-1.html">Cap. 1</a></li>
+          <li><a href="capitolo-2.html">Cap. 2</a></li>
+          <li><a href="capitolo-3.html">Cap. 3</a></li>
+          <li><a href="capitolo-4.html">Cap. 4</a></li>
+          <li><a href="capitolo-5.html">Cap. 5</a></li>
+          <li><a href="capitolo-6.html">Cap. 6</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="chapter-content">
+        <h1>Capitolo 4: Sistema di Design CSS</h1>
+        
+        <p>
+          Un design system non è solo una raccolta di colori e font. 
+          È un <strong>linguaggio visivo coerente</strong> che guida 
+          tutte le decisioni estetiche.
+        </p>
+
+        <h2>CSS Custom Properties (Variabili)</h2>
+        
+        <p>
+          Il cuore del design system dell'Esercizio:
+        </p>
+        
+        <pre><code>:root {
+  /* Palette cromatica */
+  --bg-main: #fafafa;
+  --text-primary: #2a2a2a;
+  --accent-yellow: #f4e8c1;
+  --accent-green: #d4e7d0;
+  
+  /* Spaziature */
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  
+  /* Tipografia */
+  --font-display: 'Crimson Pro', serif;
+  --font-body: 'DM Sans', sans-serif;
+}</code></pre>
+
+        <div class="concept-box">
+          <h3>Vantaggi delle Variabili CSS</h3>
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li>Cambio globale con un edit</li>
+            <li>Consistenza garantita</li>
+            <li>Manutenibilità migliorata</li>
+            <li>Theming facile (es. dark mode)</li>
+          </ul>
+        </div>
+
+        <h2>Scala Tipografica</h2>
+        
+        <p>
+          La tipografia segue una progressione matematica:
+        </p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Elemento</th>
+              <th>Dimensione</th>
+              <th>Rapporto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>h1</td>
+              <td>3rem (48px)</td>
+              <td>Base × 3</td>
+            </tr>
+            <tr>
+              <td>h2</td>
+              <td>2rem (32px)</td>
+              <td>Base × 2</td>
+            </tr>
+            <tr>
+              <td>h3</td>
+              <td>1.5rem (24px)</td>
+              <td>Base × 1.5</td>
+            </tr>
+            <tr>
+              <td>body</td>
+              <td>1rem (16px)</td>
+              <td>Base</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Questa scala crea <strong>armonia visiva</strong> e gerarchia chiara.
+        </p>
+
+        <h2>Palette Cromatica Minimalista</h2>
+        
+        <p>
+          Scelte cromatiche dell'Esercizio:
+        </p>
+        
+        <div class="practice-box">
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li><strong>Grigio neutro (#fafafa):</strong> sfondo non aggressivo</li>
+            <li><strong>Grigio scuro (#2a2a2a):</strong> testo leggibile</li>
+            <li><strong>Giallo pastello:</strong> calore, positività</li>
+            <li><strong>Verde pastello:</strong> calma, natura</li>
+          </ul>
+        </div>
+
+        <blockquote>
+          "Il colore non è decorazione, è comunicazione."
+        </blockquote>
+
+        <h2>Sistema di Spaziature</h2>
+        
+        <p>
+          Spaziature consistenti creano ritmo visivo:
+        </p>
+        
+        <pre><code>--spacing-xs: 0.5rem  (8px)
+--spacing-sm: 1rem    (16px)
+--spacing-md: 2rem    (32px)
+--spacing-lg: 3rem    (48px)
+--spacing-xl: 4rem    (64px)</code></pre>
+
+        <p>
+          Multipli di 8px facilitano allineamenti pixel-perfect.
+        </p>
+
+        <h2>Responsive Typography</h2>
+        
+        <p>
+          Font sizes si adattano al viewport:
+        </p>
+        
+        <pre><code>/* Base: 16px */
+html { font-size: 16px; }
+
+/* Mobile: 14px */
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+}</code></pre>
+
+        <p>
+          Usando <code>rem</code>, tutto scala proporzionalmente.
+        </p>
+
+        <h2>Componenti Riusabili</h2>
+        
+        <p>
+          Ogni pattern visivo è codificato come classe:
+        </p>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li><code>.intro-box</code> → box giallo introduttivo</li>
+          <li><code>.tip-box</code> → box verde suggerimenti</li>
+          <li><code>.warning-box</code> → box grigio avvisi</li>
+          <li><code>.btn</code> → pulsanti standard</li>
+        </ul>
+
+        <p>
+          Componi pagine combinando questi building blocks.
+        </p>
+
+        <h2>Performance CSS</h2>
+        
+        <p>
+          Ottimizzazioni implementate:
+        </p>
+        
+        <div class="note-box">
+          <ul style="margin-left: 1.5rem; margin-bottom: 0;">
+            <li>Selettori semplici (evita nesting profondo)</li>
+            <li>Nessuna ridondanza (DRY principle)</li>
+            <li>CSS minimizzato per produzione</li>
+            <li>Font loading ottimizzato con <code>preconnect</code></li>
+          </ul>
+        </div>
+
+        <h2>Riepilogo</h2>
+        
+        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+          <li>✓ Variabili CSS per design tokens</li>
+          <li>✓ Scala tipografica matematica</li>
+          <li>✓ Palette cromatica intenzionale</li>
+          <li>✓ Sistema di spaziature consistente</li>
+          <li>✓ Componenti riusabili</li>
+          <li>✓ Performance-first approach</li>
+        </ul>
+
+        <div class="chapter-nav">
+          <a href="capitolo-3.html" class="prev">← Capitolo 3</a>
+          <a href="capitolo-5.html" class="next">Capitolo 5 →</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Capitolo 4</strong> - Sistema di Design CSS<br>
+        Come Creare un Web-Book - Il Libro
+      </p>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
